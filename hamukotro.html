@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Bemutatkozás</title>
+    <button class="colorButton" id="colorButton">Dark mode</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const button = document.getElementById('colorButton');
+            button.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+    
+                if (document.body.classList.contains('dark-mode')) {
+                    button.innerHTML = '<i class="fas fa-sun"></i> Light mode';
+                } else {
+                    button.innerHTML = '<i class="fas fa-moon"></i> Dark mode';
+                }
+            });
+        });
+    </script>
+    <style>
+        .colorButton{
+            color:white;
+            background-color: black;
+            border-radius: 54px ;
+            width: 175px;
+            height: 35px;
+            font-size:20px;
+            transition: color 1s;
+            transition: background-color 1s ;
+        }
+        body.dark-mode .colorButton{
+            color: black;
+            background-color: white;
+        }
+        body.dark-mode{
+            background-color: #000000;
+            color: rgb(0, 0, 0);
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 500px;
+            margin:100px;
+            
+
+        }
+        
+        .slides {
+            display: none;
+            width: 100%;
+            height: auto;
+        }
+        
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+        
+        *{
+            box-sizing: border-box;
+        }
+        
+        
+        @keyframes scaleUpDown {
+            0%,
+            100% {
+                transform: scaleY(1) scaleX(1);
+            }
+            50%,
+            90% {
+                transform: scaleY(1.1);
+            }
+            75% {
+                transform: scaleY(0.95);
+            }
+            80% {
+                transform: scaleX(0.95);
+            }
+        }
+        
+        @keyframes shake {
+            0%,
+            100% {
+                transform: skewX(0) scale(1);
+            }
+            50% {
+                transform: skewX(5deg) scale(0.9);
+            }
+        }
+        
+        @keyframes particleUp {
+            0% {
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                top: -100%;
+                transform: scale(0.5);
+            }
+        }
+        
+        @keyframes glow {
+            0%,
+            100% {
+                background-color: #ef5a00;
+            }
+            50% {
+                background-color: #ff7800;
+            }
+        }
+        
+        .fire {
+            position:relative; 
+            top: 50%; /* Függőlegesen középre igazítás */
+            left: 3%; /* Bal oldalra igazítás */
+            transform: translateY(-120%); /* Függőleges középre igazítás */
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+        }
+        
+        .fire-center {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            animation: scaleUpDown 3s ease-out;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+        
+        .fire-center .main-fire {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(
+                farthest-corner at 10px 0,
+                #d43300 0%,
+                #ef5a00 95%
+            );
+            transform: scaleX(0.8) rotate(45deg);
+            border-radius: 0 40% 60% 40%;
+            filter: drop-shadow(0 0 10px #d43322);
+        }
+        
+        .fire-center .particle-fire {
+            position: absolute;
+            top: 60%;
+            left: 45%;
+            width: 10px;
+            height: 10px;
+            background-color: #ef5a00;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px #d43322);
+            animation: particleUp 2s ease-out 0;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+        
+        .fire-right {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            animation: shake 2s ease-out 0;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+        .imageContainer {
+            position: relative;
+            width: auto;
+            height: auto;
+        }
+        .fire-right .main-fire {
+            position: absolute;
+            top: 15%;
+            right: -25%;
+            width: 80%;
+            height: 80%;
+            background-color: #ef5a00;
+            transform: scaleX(0.8) rotate(45deg);
+            border-radius: 0 40% 60% 40%;
+            filter: drop-shadow(0 0 10px #d43322);
+        }
+        
+        .fire-right .particle-fire {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            width: 15px;
+            height: 15px;
+            background-color: #ef5a00;
+            transform: scaleX(0.8) rotate(45deg);
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px #d43322);
+            animation: particleUp 2s ease-out 0;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+        
+        .fire-left {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            animation: shake 3s ease-out 0;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+        
+        .fire-left .main-fire {
+            position: absolute;
+            top: 15%;
+            left: -20%;
+            width: 80%;
+            height: 80%;
+            background-color: #ef5a00;
+            transform: scaleX(0.8) rotate(45deg);
+            border-radius: 0 40% 60% 40%;
+            filter: drop-shadow(0 0 10px #d43322);
+        }
+        footer {
+            background-color: #202020;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 56px; /* Lekerekített sarkok */
+
+        }
+        footer p {
+            margin: 0;
+        }
+        .fire-left .particle-fire {
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            width: 10%;
+            height: 10%;
+            background-color: #ef5a00;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px #d43322);
+            animation: particleUp 3s infinite ease-out 0;
+            animation-fill-mode: both;
+        }
+        
+        .fire-bottom .main-fire {
+            position: absolute;
+            top: 30%;
+            left: 20%;
+            width: 75%;
+            height: 75%;
+            background-color: #ff7800;
+            transform: scaleX(0.8) rotate(45deg);
+            border-radius: 0 40% 100% 40%;
+            filter: blur(10px);
+            animation: glow 2s ease-out 0;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+        
+        body {
+            font-family: 'Courier Prime'; font-size: 22px;
+            background-color: #ff8800; /* Alapértelmezett háttérszín */
+        }
+        .header {
+            text-align: center;
+            margin-top: 80px;
+            background-color: #ff0000; /* Fejléc háttérszín */
+            color: #ffffff; /* Fejléc szöveg színe */
+            padding: 20px;
+            border-radius: 80px;
+        }
+        .nav-option {
+            float: inline-start;
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #fcc861;
+            border-radius: 56px; /* Lekerekített sarkok */
+            top: 47%; /* Függőlegesen középre igazítás */
+            left: 20%; /* Bal oldalra igazítás */
+            transform: translateY(26px); /* Függőleges középre igazítás */
+            margin: 5px;
+            /*overflow: auto; /* Az overflow tulajdonság beállítása görgethetőre */
+            text-decoration: none; /* Az aláhúzás eltávolítása */
+        }
+        .slideshow-container {
+              max-width: 500px;
+              position: relative;
+              margin: auto;
+            }
+            
+        .mySlides {
+              display: none;
+            }
+            
+        .fade {
+              -webkit-animation-name: fade;
+              -webkit-animation-duration: 1.5s;
+              animation-name: fade;
+              animation-duration: 1.5s;
+            }
+            
+        @-webkit-keyframes fade {
+              from {opacity: .4} 
+              to {opacity: 1}
+            }
+            
+        @keyframes fade {
+              from {opacity: .4} 
+              to {opacity: 1}
+            }
+        
+            
+        .nav-option:hover {
+            background-color: #fa3737; /* Háttérszín hover állapotban */
+            color: black;
+            text-decoration: none; /* Az aláhúzás eltávolítása */
+        }
+        .nav {
+            margin: 20px 0;
+            text-align: center;
+            background-color: #ffdd98; /* Navigációs sáv háttérszín */
+            padding: 10px;
+            border-radius: 8px; /* Lekerekített sarkok */
+        }
+        .nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            text-decoration: none; /* Az aláhúzás eltávolítása */
+        }
+        .content {
+            margin: 20px;
+            padding: 20px;
+            background-color: #c1f9ffc6; /* Tartalom szekció háttérszíne */
+            border-radius: 8px; /* Lekerekített sarkok */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Doboz árnyék */
+            padding: 10px 25px;
+            overflow:auto;            
+            width: 800px; /* A div szélessége */
+            height: auto; /* A div magassága */
+            max-height: 400px; /* max magassag*/
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        
+    </style>
+    <!--<script>
+        function showSection(id) {
+            var sections = document.querySelectorAll('.reference-section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>-->
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+          let slideIndex = 0;
+          showSlides();
+        
+          function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 5000); // Change image every 2 seconds
+          }
+        });
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                fetch('http://localhost:3306/images')
+                    .then(response => response.json())
+                    .then(data => {
+                        const imageContainer = document.getElementById('imageContainer');
+                        data.forEach(image => {
+                            const div = document.createElement('div');
+                            div.classList.add('image-item');
+                            const img = document.createElement('img');
+                            img.src = image.url;
+                            img.alt = image.description;
+                            div.appendChild(img);
+                            imageContainer.appendChild(div);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching images:', error));
+            });
+        </script>                  
+                      
+</head>
+<body>
+    
+    <!--<div class="slideshow-container">
+        <img class="slides fade" src="c.png" alt="Image 1">
+        <img class="slides fade" src="a.png" alt="Image 2">
+        <img class="slides fade" src="c.png" alt="Image 3">
+        <img class="slides fade" src="d.png" alt="Image 4">
+    </div>  -->  
+    <div class="header">
+        <h1>A helyszín beszél</h1>
+        <div class="navbar">
+            <div class="nav-option">
+                <a href="hamukotro.html">Főmenü</a>
+            </div>
+            <div class="nav-option">
+                <a href="#bemutatkozas">Bemutatkozás</a>
+            </div>
+            <div class="nav-option">
+                <a href="referenciak.html">Referenciák</a>
+            </div>
+            <div class="nav-option">
+                <a href="ist.html">Igazságügyi Szakértői Tevékenység</a>
+            </div>
+            <div class="nav-option">
+                <a href="gyik.html">Gyakran Ismételt Kérdések</a>
+            </div>
+            <div class="nav-option">
+                <a href="#kapcsolat">Kapcsolat</a>
+            </div>
+            <div class="nav-option">
+                <a href="tanulsag.html">Tanulságos esetek</a>
+            </div>
+            <div class="nav-option">
+                <a href="vegzettseg.html">Jártosságaim</a>
+            </div>
+    </div>
+</div>
+
+    <div class="fire">
+        <div class="fire-left">
+          <div class="main-fire"></div>
+          <div class="particle-fire"></div>
+        </div>
+        <div class="fire-center">
+          <div class="main-fire"></div>
+          <div class="particle-fire"></div>
+        </div>
+        <div class="fire-right">
+          <div class="main-fire"></div>
+          <div class="particle-fire"></div>
+        </div>
+        <div class="fire-bottom">
+          <div class="main-fire"></div>
+        </div>
+      </div>
+     <!-- <div class="nav">
+        <a href="#bemutatkozas">Bemutatkozás</a>
+        <a href="#referenciak">Referenciák</a>
+        <a href="#igazsagugyi">Igazságügyi Szakértői Tevékenység</a>
+        <a href="gyik.html">Gyakran Ismételt Kérdések</a>
+        <a href="#kapcsolat">Kapcsolat</a> -->
+        <div class="slideshow-container" style="top:20px" style="margin:100px" style="padding:300px">
+          
+            <div class="mySlides fade">
+              <img src="tűz 139.JPG" style="max-width:300px" style="height:auto" style="border-radius: 10px;" >
+            </div>
+          
+            <div class="mySlides fade">
+              <img src="tűz 137.JPG" style="max-width:300px" style="height:auto" style="border-radius: 10px;" >
+            </div>
+          
+            <!-- Add more slides as needed -->
+          </div>
+    <div class="content" id="bemutatkozas">
+        <h2>Bemutatkozás</h2>
+        <h3>Üdvözlöm!</h3>
+            <p> Péter igazságügyi tűzvizsgálati szakértő vagyok. </p>
+            <p>1996-ban kezdődött a tűzoltói pályám. A több mint 25 év alatt volt lehetőségem közel tíz évig</p>
+            <p>a fővárosi beavatkozó állomány tagjaként a városi környezetben a beavatkozásokkal</p>
+            <p>kapcsolatosan tapasztalatot gyűjteni. Az első néhány tűzvizsgálati eljárásom is a fővárosi</p>
+            <p>tűzesetekhez kötődik. Ezt követően vidéki környezetben kialakult káreseteknél, tűzeseteknél</p>
+            <p>folytathattam a tapasztalatgyűjtést, valamint betölthettem különböző vezetői, szakmai beosztást</p> 
+            <p>a tűzoltóság kötelékében. Az évtizedek alatt volt lehetőségem megfigyelni, hogy a tűzesetek</p> 
+            <p>során milyen elváltozások, alakvesztések, anyagveszteségek, égés- vagy égésterméknyomok</p> 
+            <p>alakulnak ki a tűzzel érintett területeken. Érdekelni kezdett a tüzek keletkezésének vizsgálata.</p> 
+            <p>Először tűzvizsgálóként, később tűzvizsgálati szakértőként, majd tűzvizsgálati igazságügyi</p> 
+            <p>szakértőként vettem részt különböző eljárásokban. </p>
+            A több évtized alatt számos, a tűzoltóság történelmébe beírt jelentős káreseteknél volt lehetőségem jelen lenni, tűzvizsgálati eljárásban részt venni. (Budapest Sportcsarnok tüze, Ganz Mávag raktárépület tüze, Pharma Park gyógyszerraktár tüze, stb.) 
+            Óraadó tanárként, külső előadóként a szakközépiskolai képzésben rendszeresen, a főiskolai képzésben időnként, megtisztelő szerepet töltök be tűzvédelmi és tűzvizsgálati tárgyak oktatásában.
+            
+            Iskolai végzettségek:
+            Kozma Lajos Faipari Technikum (faipari technikus) 
+            Pécsi Tudomány Egyetem (tűzvédelmi műszaki szakoktató. Szakdolgozat témakör: Faipari üzemben keletkezett porrobbanás)
+            ZMNE (katasztrófavédelmi mérnök. Szakdolgozati témakör: Lakóépületek szemrevételezéses statikai vizsgálata)
+            KRE Állam és jogtudományi kar (folyamatban. Szakdolgozati témakör: A tűzvizsgálati hatósági eljárás lefolytatása)
+            Jogosítványok: A, B, C, D, E kategória, nehézgépkezelői vizsga
+            
+            Tűzvizsgálati végzettségek, tanfolyamok:
+             - Tűzvizsgáló tanfolyam (Budapest, Katasztrófavédelmi Oktatási Központ)
+             - Nemzetközi Rendészeti Akadémia (Budapest, Robbantási helyszínek vizsgálata ILEA)
+             - Tűzeseti helyszínelő tanfolyam (Dunakeszi, Rendőrségi Oktatási és Kiképző Központ)
+             - Kihallgatástechnika tanfolyam (Miskolc, Rendvédelmi Technikum)
+             - Tűzvizsgálati szakértői vizsga (Budapest, Belügyminisztérium Országos Katasztrófavédelmi Főigazgatóság)
+             - Tűzvizsgálati igazságügyi szakértői vizsga (Budapest, Magyar Igazságügyi Szakértői Kamara)
+            </p>
+            
+            <h3>Egyéb tűzoltó szakmai eredmények:</h3>
+            <p>-	Országos tűzvizsgálati szakmai verseny: I. helyezett (2014)</p>
+            <p>-	dr. Balogh Imre emlékpályázat: Fődíj (2018)</p>
+            
+    </div>
+    <!--<div class="content" id="rolam">
+        <h2>Jártosságaim</h2>
+        <p>ide kellenek majd a végzettségek stb</p>
+        <p></p>
+        <p>a</p>
+        <p>a</p>
+        <p>a</p>
+        <p>a</p>
+        <p>a</p>
+        <p>a</p>
+        <p>a</p>
+        <p>a</p>
+        <p>a</p>
+        
+    </div>-->
+    <div class="content" id="kapcsolat">
+        <h2>Kapcsolat felvétel</h2>
+        <p>Kapcsolat:
+
+            Nagy Péter tűzvizsgálati igazságügyi szakértő
+                                                     E-mail: hamukotro@gmail.com
+                                              weboldal: www.tuzvizsgalat.eu / www.hamukotro.hu
+                                                 Telefon: +36 30 4887838 (munkanapokon 7.30-17.00-ig hívható)
+               Szakértői nyilvántartási szám: IM011047
+                                           Linkedin profil: Péter Nagy - Fire Investigation Forensic Expert/ Tűzvizsgálati Igazságügyi  Szakértő - Egyéni vállalkozó | LinkedIn
+            
+            </p>
+    </div>    
+    <!--<div class="content" id="igazsagugyi">
+        <h2>Igazságügyi Szakértői Tevékenység</h2>
+        <p>....................</p>
+        <p>....................</p>
+        <p>....................</p>
+        <p>....................</p>
+        <p>....................</p>
+        <p>....................</p>
+        <p>....................</p>
+        <p>....................</p>
+        <p>....................</p>
+        <p>....................</p>
+        <p>....................</p>
+        
+    </div>-->
+    <footer>
+        <p>&copy; 2024 minden jog fenttartva.</p>
+    </footer>
+</body>
+</html>

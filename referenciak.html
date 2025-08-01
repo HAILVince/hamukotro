@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referenciák</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier Prime'; font-size: 22px;
+            background-color: #ff8800; /* Alapértelmezett háttérszín */
+        }
+        .header {
+            text-align: center;
+            margin-top: 80px;
+            background-color: #ff0000; /* Fejléc háttérszín */
+            color: #000000; /* Fejléc szöveg színe */
+            padding: 20px;
+            border-radius: 80px;}
+        
+        header h1 {
+            margin: 0;
+            color: #000000;
+        }
+        main {
+            padding: 10px;
+            border-radius: 8px; /* Lekerekített sarkok */
+            color: #000000;
+            
+        }
+        content{
+            overflow:auto;            
+            width: 800px; /* A div szélessége */
+            height: auto; /* A div magassága */
+            max-height: 500px; /* max magassag*/
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: #000000;
+            background-color: #ffffff; /* Alapértelmezett háttérszín */
+
+        }
+        section {
+            padding: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 56px; /* Lekerekített sarkok */
+        }
+        footer p {
+            margin: 0;
+        }
+    
+        .reference-section {
+            display: none;
+        }
+        .reference-section img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0; /* Kép és szöveg közötti távolság */
+            overflow: auto; /* Az overflow tulajdonság beállítása görgethetőre */
+        }
+        .image-gallery {
+            width: auto; /* A div szélessége */
+            height: auto; /* A div magassága */
+            overflow: auto; /* Az overflow tulajdonság beállítása görgethetőre */
+            white-space: nowrap; /* A képek vízszintes elrendezése */
+        }
+        
+        .image-gallery img {
+            width: auto; /* A képek szélessége */
+            height: auto; /* A képek magassága automatikus méretezés */
+            margin: 5px; /* A képek közötti margó */
+            display: list-item; /* A képek egymás mellett jelenjenek meg */
+            overflow: auto; /* Az overflow tulajdonság beállítása görgethetőre */
+            cursor: zoom-in; /* A képek kurzor típusa */
+        }        
+    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- CSS fájl hivatkozása -->
+    <script src="script.js" defer></script> <!-- JavaScript fájl hivatkozása -->
+</head>
+<body>
+    <header>
+        <h1>Referenciák</h1>
+    </header>
+
+    <main>
+        <section class="content">
+            <h2>ref cím</h2>
+            <div id="ref1">
+                <p>Referencia 1 leírása...</p>
+                <div class="image-gallery">
+                    <img src="a.png" alt="Kép 1">
+                    <img src="d.png" alt="Kép 2">
+                    <img src="c.png" alt="Kép 3">
+                    <!-- További képek itt -->
+                </div>
+            </div>           
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+            <div id="ref2">
+                <p>Referencia 2 leírása...</p>
+                <div class="image-gallery">
+                    <img src="a.png" alt="Kép 1">
+                    <img src="d.png" alt="Kép 2">
+                    <img src="c.png" alt="Kép 3">
+                    <!-- További képek itt -->
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+            <div id="ref3">
+                <p>Referencia 3 leírása...</p>
+                <div class="image-gallery">
+                    <img src="a.png" alt="Kép 1">
+                    <img src="d.png" alt="Kép 2">
+                    <img src="c.png" alt="Kép 3">
+                    <!-- További képek itt -->
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+            <div id="ref4">
+                <p>Referencia 4 leírása...</p>
+                <div class="image-gallery">
+                    <img src="a.png" alt="Kép 1">
+                    <img src="d.png" alt="Kép 2">
+                    <img src="c.png" alt="Kép 3">
+                    <!-- További képek itt -->
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+        </section>
+        <section class="content">
+            <h2>ref cím</h2>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 minden jog fenttartva.</p>
+    </footer>
+</body>
+</html>
